@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1615073911 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
+	<iostream>
+	"CommandHandler.h"
+
+1615102707 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+	<string>
+	<queue>
+	<unordered_map>
+
+1615102685 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
+	<iostream>
+	<regex>
+	"Roster.h"
+	"Student.h"
+	"FileHandler.h"
+	"CommandHandler.h"
+
+1615072705 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
+	"Student.h"
+
+1615073127 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
+	<string>
+
+1615073043 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
+	"Roster.h"
+
+1615066654 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
+	<vector>
+	<string>
+	"Student.h"
+
+1615071260 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
+	"OutputFormatter.h"
+
+1615072072 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
+
+1615101949 /home/cvollra1/Documents/CodyVollrathA2/datateir/fileHandler.h
+	<string>
+
+1615102408 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
+	"FileHandler.h"
+	<iostream>
+	<fstream>
+
+1615102338 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
+	<string>
+
