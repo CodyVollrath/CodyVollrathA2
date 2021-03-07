@@ -2,14 +2,19 @@
 
 namespace formatter
 {
-OutputFormatter::OutputFormatter()
+OutputFormatter::OutputFormatter(const string& csvData)
 {
-    //ctor
+    this->csvData = csvData;
+    CSVParser csvParser(csvData);
+    this->outputData = csvData;
 }
 
 OutputFormatter::~OutputFormatter()
 {
     //dtor
 }
+
+
+
 }
 

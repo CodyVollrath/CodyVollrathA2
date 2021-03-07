@@ -13,7 +13,7 @@ class FileHandler
         FileHandler(const string& infile, const string& outfile);
         virtual ~FileHandler();
         string read() const;
-        void write();
+        void write(const string& data);
 
     protected:
 };

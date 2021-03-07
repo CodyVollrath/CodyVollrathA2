@@ -17,17 +17,18 @@ FileHandler::~FileHandler()
 
 string FileHandler::read() const
 {
+    string fileData;
     string line;
     ifstream file(this->infile);
     if (file.is_open()){
         while (getline(file, line)) {
-            cout << line << '\n';
+            fileData = fileData + line + "\n";
         }
     }
-    return "";
+    return fileData;
 }
 
-void FileHandler::write()
+void FileHandler::write(const string& data)
 {
 
 }

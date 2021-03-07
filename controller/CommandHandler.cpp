@@ -80,8 +80,11 @@ int CommandHandler::processArguments(int argc, char* argv[])
         this->displayUsageStatement(programName);
         return 1;
     }
+
     FileHandler fileIO(this->inputFile, this->outputFile);
-    fileIO.read();
+    string fileData = fileIO.read();
+
+
     return 0;
 
 }
