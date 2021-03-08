@@ -17,6 +17,7 @@
 					<Add directory="model" />
 					<Add directory="formatter" />
 					<Add directory="datateir" />
+					<Add directory="utility" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -26,6 +27,8 @@
 		</Compiler>
 		<Unit filename="controller/CommandHandler.cpp" />
 		<Unit filename="controller/CommandHandler.h" />
+		<Unit filename="datateir/CSVParser.cpp" />
+		<Unit filename="datateir/CSVParser.h" />
 		<Unit filename="datateir/FileHandler.cpp" />
 		<Unit filename="datateir/FileHandler.h" />
 		<Unit filename="formatter/OutputFormatter.cpp" />
@@ -35,6 +38,8 @@
 		<Unit filename="model/Roster.h" />
 		<Unit filename="model/Student.cpp" />
 		<Unit filename="model/Student.h" />
+		<Unit filename="utility/Utility.cpp" />
+		<Unit filename="utility/Utility.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

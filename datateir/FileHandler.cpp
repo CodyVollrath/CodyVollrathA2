@@ -1,7 +1,4 @@
 #include "FileHandler.h"
-#include <iostream>
-#include <fstream>
-using namespace std;
 namespace datatier
 {
 FileHandler::FileHandler(const string& infile, const string& outfile)

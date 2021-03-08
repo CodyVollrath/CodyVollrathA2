@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 #include "CommandHandler.h"
 using namespace controller;
 

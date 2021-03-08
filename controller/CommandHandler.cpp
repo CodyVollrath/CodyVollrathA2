@@ -1,21 +1,10 @@
-#include <iostream>
-#include <regex>
-using namespace std;
-
-#include "Roster.h"
-#include "Student.h"
-using namespace model;
-
-#include "FileHandler.h"
-using namespace datatier;
-
-
 #include "CommandHandler.h"
+
 namespace controller
 {
 CommandHandler::CommandHandler()
 {
-    //ctor
+    this->columns = 3;
 }
 
 CommandHandler::~CommandHandler()
@@ -48,7 +37,7 @@ int CommandHandler::processArguments(int argc, char* argv[])
         try {
             switch(this->table.at(argument))
             {
-                case c: this->handleColumnSpaces();
+                case c: this->handleColumns();
                 break;
                 case g: this->enableDisplayStudentGrade();
                 break;
@@ -67,7 +56,6 @@ int CommandHandler::processArguments(int argc, char* argv[])
             this->hasErrors = true;
         }
 
-
     }
 
     if (this->hasErrors) {
@@ -83,8 +71,10 @@ int CommandHandler::processArguments(int argc, char* argv[])
 
     FileHandler fileIO(this->inputFile, this->outputFile);
     string fileData = fileIO.read();
-
-
+    CSVParser parser(fileData);
+    Roster roster = parser.getRoster();
+    OutputFormatter outputFormatter(roster, this->columns);
+    cout << outputFormatter.produceOutput() << endl;
     return 0;
 
 }
@@ -111,20 +101,6 @@ void CommandHandler::displayUsageStatement(const string& programName)
          << "\t\t\t by the student's grade in descending order." << endl;
 }
 
-int CommandHandler::getNumberOfColumns(const string& numberArg) const
-{
-    regex reg("\\d");
-    smatch matches;
-    int columnSpaces = 0;
-
-    if (regex_search(numberArg, matches, reg))
-    {
-        int baseTen = 10;
-        columnSpaces = stoi(numberArg, nullptr, baseTen);
-    }
-    return columnSpaces;
-}
-
 void CommandHandler::promptUserToOverwrite()
 {
     //Display overwrite message;
@@ -135,16 +111,14 @@ void CommandHandler::determineFiles(const string& filename)
 {
     this->arguments.pop();
     if (!this->isInputFileParsed) {
-        cout << "Input: " << filename << endl;
         this->inputFile = filename;
         this->isInputFileParsed = true;
         return;
     }
-    cout << "Output File: " << filename << endl;
     this->outputFile = filename;
 }
 
-void CommandHandler::handleColumnSpaces()
+void CommandHandler::handleColumns()
 {
     this->arguments.pop();
     if (this->arguments.empty()) {
@@ -153,14 +127,13 @@ void CommandHandler::handleColumnSpaces()
         return;
     }
 
-    int numericArg = this->getNumberOfColumns(this->arguments.front());
+    int numericArg = this->util.convertStrToNum(this->arguments.front());
     if (numericArg == 0) {
-        cout << this->arguments.front() << " is not a number. Please see --help." << endl;
+        cout << this->arguments.front() << " is not valid. Please see --help." << endl;
         this->hasErrors = true;
         return;
     }
-
-    cout << "Apply numeric value: " << numericArg << " to spaces!"<< endl;
+    this->columns = numericArg;
     this->arguments.pop();
 }
 

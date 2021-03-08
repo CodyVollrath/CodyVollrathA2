@@ -1,10 +1,27 @@
 #ifndef COMMANDHANDLER_H
 #define COMMANDHANDLER_H
+
+#include <iostream>
+#include <regex>
 #include <string>
 #include <queue>
 #include <unordered_map>
-
 using namespace std;
+
+#include <Utility.h>
+using namespace utility;
+
+#include "FileHandler.h"
+#include "CSVParser.h"
+using namespace datatier;
+
+#include "Roster.h"
+#include "Student.h"
+using namespace model;
+
+#include "OutputFormatter.h"
+using namespace formatter;
+
 namespace controller
 {
 class CommandHandler
@@ -22,23 +39,23 @@ class CommandHandler
             {"-sg", ArgumentType::sg}
         };
 
+        Utility util;
         string inputFile;
         string outputFile;
         bool isInputFileParsed = false;
         bool doNotPromptForOverwrite = false;
         bool hasErrors = false;
+        int columns;
 
         void displayUsageStatement(const string& programName);
         void promptUserToOverwrite();
         void determineFiles(const string& filename);
-        void handleColumnSpaces();
+        void handleColumns();
         void enableDisplayStudentGrade();
         void disallowOverwritePrompt();
         void removeStudentName();
         void sortByFirstName();
         void sortByGrade();
-
-        int getNumberOfColumns(const string& numberArg) const;
     public:
         CommandHandler();
         virtual ~CommandHandler();

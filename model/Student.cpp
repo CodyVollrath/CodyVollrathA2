@@ -1,4 +1,5 @@
 #include "Student.h"
+
 namespace model
 {
 Student::Student(const string& firstName, const string& lastName, int grade)

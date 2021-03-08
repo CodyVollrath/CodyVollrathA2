@@ -1,43 +1,45 @@
 # depslib dependency file v1.0
-1615073911 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
-	<iostream>
+1615160349 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
 	"CommandHandler.h"
 
-1615102707 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+1615180825 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+	<iostream>
+	<regex>
 	<string>
 	<queue>
 	<unordered_map>
-
-1615152372 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
-	<iostream>
-	<regex>
-	"Roster.h"
-	"Student.h"
+	<Utility.h>
 	"FileHandler.h"
-	"CommandHandler.h"
-
-1615072705 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
-	"Student.h"
-
-1615073127 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
-	<string>
-
-1615151505 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
+	"CSVParser.h"
 	"Roster.h"
-	"Utility.h"
-	<unordered_map>
-
-1615151312 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
-	<vector>
-	<string>
-	<unordered_map>
 	"Student.h"
-
-1615155109 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
 	"OutputFormatter.h"
 
-1615155068 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
+1615180874 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
+	"CommandHandler.h"
+
+1615160425 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
+	"Student.h"
+
+1615160409 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
 	<string>
+
+1615175704 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
+	"Roster.h"
+
+1615175669 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
+	"Student.h"
+	<vector>
+	<string>
+	"Utility.h"
+
+1615184758 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
+	"OutputFormatter.h"
+
+1615190316 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
+	<string>
+	<bits/stdc++.h>
+	"Utility.h"
 	"Roster.h"
 	"Student.h"
 	"CSVParser.h"
@@ -45,22 +47,40 @@
 1615101949 /home/cvollra1/Documents/CodyVollrathA2/datateir/fileHandler.h
 	<string>
 
-1615140716 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
+1615160542 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
 	"FileHandler.h"
+
+1615169989 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
 	<iostream>
 	<fstream>
-
-1615140269 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
 	<string>
 
-1615156078 /home/cvollra1/Documents/CodyVollrathA2/utility/Utility.h
+1615180099 /home/cvollra1/Documents/CodyVollrathA2/utility/Utility.h
+	<iostream>
 	<algorithm>
 	<string>
 	<sstream>
+	<vector>
+	<regex>
 
-1615155461 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/CSVParser.cpp
+1615169865 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/CSVParser.cpp
 	"CSVParser.h"
 
-1615155140 /home/cvollra1/Documents/CodyVollrathA2/datateir/CSVParser.h
-	<string>
+1615169822 /home/cvollra1/Documents/CodyVollrathA2/datateir/CSVParser.h
+	"Utility.h"
+	"Roster.h"
+	"Student.h"
+	<iostream>
+
+1615180340 source:/home/cvollra1/Documents/CodyVollrathA2/utility/Utility.cpp
+	"Utility.h"
+
+1615172792 /home/cvollra1/Documents/CodyVollrathA2/model/CSVParser.h
+	<iostream>
+	"Utility.h"
+	"Roster.h"
+	"Student.h"
+
+1615176732 source:/home/cvollra1/Documents/CodyVollrathA2/model/CSVParser.cpp
+	"CSVParser.h"
 

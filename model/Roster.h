@@ -1,27 +1,32 @@
 #ifndef ROSTER_H
 #define ROSTER_H
+#include "Student.h"
+
 #include <vector>
 #include <string>
-#include <unordered_map>
-
-#include "Student.h"
 using namespace std;
+
+#include "Utility.h"
+using namespace utility;
+
+
 namespace model
 {
 class Roster
 {
     private:
         vector<Student> students;
+        Utility util;
 
     public:
         Roster();
         virtual ~Roster();
-        void add(const Student& student);
-        void remove(const Student& student);
+        void add(Student& student);
+        void remove(Student& student);
+        int getIndex(Student& student) const;
         Student getStudent(int index) const;
-        int getIndex(const Student& student) const;
         Student getStudent(const string& firstName, const string& lastName) const;
-        unordered_map<char,vector<Student>> getStudentsByGrade() const;
+        int size() const;
 
     protected:
 };

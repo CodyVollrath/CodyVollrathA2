@@ -1,30 +1,34 @@
 #ifndef OUTPUTFORMATTER_H
 #define OUTPUTFORMATTER_H
+
 #include <string>
+#include <bits/stdc++.h>
 using namespace std;
+
+#include "Utility.h"
+using namespace utility;
 
 #include "Roster.h"
 #include "Student.h"
-using namespace model;
-
 #include "CSVParser.h"
-using namespace datatier;
+using namespace model;
 
 namespace formatter
 {
 class OutputFormatter
 {
     private:
-        string csvData;
+        Utility util;
         string outputData;
-        Roster students;
-        void parseCSV();
+        int numberOfColumns;
+        Roster roster;
+        string getStudentsWithinRange(int maxGrade,int minGrade) const;
 
     public:
-        OutputFormatter(const string& csvData);
+        OutputFormatter(const Roster& roster);
+        OutputFormatter(const Roster& roster, int numberOfColumns);
         virtual ~OutputFormatter();
-
-
+        string produceOutput() const;
 
 
     protected:
