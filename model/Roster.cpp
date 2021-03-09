@@ -21,7 +21,7 @@ void Roster::remove(Student& student)
 {
     int indexToRemove = this->getIndex(student);
     if (indexToRemove >= 0) {
-        this->students.erase(this->students.begin() + indexToRemove, this->students.begin() + indexToRemove);
+        this->students.erase(this->students.begin() + indexToRemove);
     }
 }
 
@@ -47,7 +47,8 @@ Student Roster::getStudent(const string& firstName, const string& lastName) cons
     string fullName = firstName + " " + lastName;
         for (vector<Student>::size_type i = 0; i < this->students.size(); i++) {
         Student currStudent = this->students[i];
-        if (this->util.strEqualsIgnoreCase(fullName,currStudent.getFullName())) {
+        bool equalsIgnoredCase = this->util.strEqualsIgnoreCase(fullName,currStudent.getFullName());
+        if (equalsIgnoredCase) {
 
             return currStudent;
         }
@@ -59,6 +60,40 @@ Student Roster::getStudent(const string& firstName, const string& lastName) cons
 int Roster::size() const
 {
     return this->students.size();
+}
+void Roster::print()
+{
+    for (vector<Student>::size_type i = 0; i < this->students.size(); i++) {
+        cout << this->students[i].getFullName() << endl;
+    }
+}
+void Roster::sortStudentsByLastName()
+{
+    sort(this->students.begin(), this->students.end());
+}
+
+void Roster::sortStudentsByFirstName()
+{
+    sort(this->students.begin(), this->students.end(), [](Student a, Student b)
+         {
+             for (char& c1 : a.getFirstName()) {
+                for (char& c2 : b.getFirstName())
+                {
+                    if (c1 < c2) {
+                        return true;
+                    } else if (c1 > c2) {
+                        return false;
+                    }
+                }
+             }
+         }); //<- Predicate of some sort
+}
+void Roster::sortStudentsByGrade()
+{
+    sort(this->students.begin(), this->students.end(), [](Student a, Student b)
+         {
+             return a.getGrade() > b.getGrade();
+         }); //<- Predicate of some sort
 }
 }
 

@@ -2,7 +2,7 @@
 1615160349 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
 	"CommandHandler.h"
 
-1615180825 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+1615254554 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
 	<iostream>
 	<regex>
 	<string>
@@ -15,28 +15,29 @@
 	"Student.h"
 	"OutputFormatter.h"
 
-1615180874 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
+1615258274 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
 	"CommandHandler.h"
 
-1615160425 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
+1615258186 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
 	"Student.h"
 
-1615160409 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
+1615258116 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
 	<string>
 
-1615175704 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
+1615258202 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
 	"Roster.h"
 
-1615175669 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
+1615254025 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
 	"Student.h"
 	<vector>
 	<string>
+	<algorithm>
 	"Utility.h"
 
-1615184758 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
+1615220966 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
 	"OutputFormatter.h"
 
-1615190316 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
+1615217371 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
 	<string>
 	<bits/stdc++.h>
 	"Utility.h"
@@ -47,10 +48,10 @@
 1615101949 /home/cvollra1/Documents/CodyVollrathA2/datateir/fileHandler.h
 	<string>
 
-1615160542 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
+1615223084 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
 	"FileHandler.h"
 
-1615169989 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
+1615221545 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
 	<iostream>
 	<fstream>
 	<string>

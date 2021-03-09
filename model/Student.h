@@ -20,6 +20,7 @@ class Student
         string getLastName() const;
         string getFullName() const;
         int getGrade() const;
+        bool operator<(const Student& other) const;
 
     protected:
 };

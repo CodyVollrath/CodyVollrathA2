@@ -27,7 +27,19 @@ string FileHandler::read() const
 
 void FileHandler::write(const string& data)
 {
+    ofstream file(this->outfile);
+    file << data;
+    file.close();
 
+}
+
+bool FileHandler::doesOutputFileExist() const
+{
+    ifstream file(this->outfile);
+    if (file) {
+        return true;
+    }
+    return false;
 }
 }
 

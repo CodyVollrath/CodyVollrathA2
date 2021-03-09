@@ -69,12 +69,38 @@ int CommandHandler::processArguments(int argc, char* argv[])
         return 1;
     }
 
+
     FileHandler fileIO(this->inputFile, this->outputFile);
     string fileData = fileIO.read();
     CSVParser parser(fileData);
     Roster roster = parser.getRoster();
-    OutputFormatter outputFormatter(roster, this->columns);
-    cout << outputFormatter.produceOutput() << endl;
+    if (!this->studentFirstName.empty() && !this->studentLastName.empty()) {
+        Student student = roster.getStudent(this->studentFirstName, this->studentLastName);
+        roster.remove(student);
+    }
+    roster.sortStudentsByLastName();
+    if (this->doSortByFirstName) {
+        roster.sortStudentsByFirstName();
+    }
+
+    if (this->doSortByGrade) {
+        roster.sortStudentsByGrade();
+    }
+
+    OutputFormatter outputFormatter(roster, this->columns, this->displayGrade);
+    string output = outputFormatter.produceOutput();
+    cout << output << endl;
+    if (!this->outputFile.empty()) {
+        char response = 'y';
+        if (!this->doNotPromptForOverwrite && fileIO.doesOutputFileExist()) {
+            cout << "Overwrite" << this->outputFile << "? (y|any key): ";
+            cin >> response;
+        }
+        if (response == 'y') {
+            fileIO.write(output);
+        }
+
+    }
     return 0;
 
 }
@@ -140,7 +166,7 @@ void CommandHandler::handleColumns()
 void CommandHandler::enableDisplayStudentGrade()
 {
     this->arguments.pop();
-    cout << "Display student grade with the output" << endl;
+    this->displayGrade = true;
 }
 
 void CommandHandler::disallowOverwritePrompt()
@@ -159,20 +185,21 @@ void CommandHandler::removeStudentName()
         return;
     }
 
-    string firstName = this->arguments.front();
+    this->studentFirstName = this->arguments.front();
     this->arguments.pop();
-    string lastName = this->arguments.front();
+    this->studentLastName = this->arguments.front();
     this->arguments.pop();
-    cout << firstName << " : " << lastName << endl;
 }
 
 void CommandHandler::sortByFirstName()
 {
     this->arguments.pop();
+    this->doSortByFirstName = true;
 }
 void CommandHandler::sortByGrade()
 {
     this->arguments.pop();
+    this->doSortByGrade = true;
 }
 }
 

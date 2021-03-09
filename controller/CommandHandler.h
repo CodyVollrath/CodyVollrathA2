@@ -42,10 +42,15 @@ class CommandHandler
         Utility util;
         string inputFile;
         string outputFile;
+        string studentFirstName;
+        string studentLastName;
         bool isInputFileParsed = false;
         bool doNotPromptForOverwrite = false;
         bool hasErrors = false;
         int columns;
+        bool displayGrade = false;
+        bool doSortByGrade = false;
+        bool doSortByFirstName = false;
 
         void displayUsageStatement(const string& programName);
         void promptUserToOverwrite();

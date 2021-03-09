@@ -27,13 +27,13 @@
 		</Compiler>
 		<Unit filename="controller/CommandHandler.cpp" />
 		<Unit filename="controller/CommandHandler.h" />
-		<Unit filename="datateir/CSVParser.cpp" />
-		<Unit filename="datateir/CSVParser.h" />
 		<Unit filename="datateir/FileHandler.cpp" />
 		<Unit filename="datateir/FileHandler.h" />
 		<Unit filename="formatter/OutputFormatter.cpp" />
 		<Unit filename="formatter/OutputFormatter.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="model/CSVParser.cpp" />
+		<Unit filename="model/CSVParser.h" />
 		<Unit filename="model/Roster.cpp" />
 		<Unit filename="model/Roster.h" />
 		<Unit filename="model/Student.cpp" />

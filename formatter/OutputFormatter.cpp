@@ -2,15 +2,11 @@
 
 namespace formatter
 {
-OutputFormatter::OutputFormatter(const Roster& roster)
-{
-    this->roster = roster;
-    this->numberOfColumns = 3;
-}
-OutputFormatter::OutputFormatter(const Roster& roster, int numberOfColumns)
+OutputFormatter::OutputFormatter(const Roster& roster, int numberOfColumns, bool displayWithNumberGrade)
 {
     this->roster = roster;
     this->numberOfColumns = numberOfColumns;
+    this->displayWithNumberGrade = displayWithNumberGrade;
 }
 
 OutputFormatter::~OutputFormatter()
@@ -27,21 +23,21 @@ string OutputFormatter::produceOutput() const
     string FStudents = this->getStudentsWithinRange(59, INT_MIN);
 
     if (!AStudents.empty()) {
-        output = "Students earning an A:\n" + AStudents + "\n";
+        output = "Students earning an A:\n" + AStudents + "\n\n";
     }
     if (!BStudents.empty()) {
-        output += "Students earning a B:\n" + BStudents + "\n";
+        output += "Students earning a B:\n" + BStudents + "\n\n";
 
     }
     if (!CStudents.empty()) {
-        output += "Students earning a C:\n" + CStudents + "\n";
+        output += "Students earning a C:\n" + CStudents + "\n\n";
     }
     if (!DStudents.empty()) {
-        output += "Students earning a D:\n" + DStudents + "\n";
+        output += "Students earning a D:\n" + DStudents + "\n\n";
 
     }
     if (!FStudents.empty()) {
-        output += "Students earning an F:\n" + FStudents + "\n";
+        output += "Students earning an F:\n" + FStudents + "\n\n";
     }
 
     return output;
@@ -51,25 +47,35 @@ string OutputFormatter::getStudentsWithinRange(int maxGrade,int minGrade) const
     string studentsWithinGradeRange;
     string colSeparator;
     unsigned int columnWidth = 22;
+    unsigned int adjustedColumnWidth;
     int colNumber = 0;
     for (int i = 0; i < this->roster.size(); i++) {
         Student currStudent = this->roster.getStudent(i);
         string fullName = currStudent.getFullName();
         int grade = currStudent.getGrade();
+        string gradeToDisplay;
+        if (this->displayWithNumberGrade) {
+            gradeToDisplay = " (" + to_string(grade) + ")";
+        }
 
         if (grade <= maxGrade && grade >= minGrade) {
             colNumber++;
             if (colNumber < this->numberOfColumns) {
-                colSeparator = "\t\t";
+                if (fullName.size() > columnWidth) {
+                    adjustedColumnWidth = columnWidth;
+                } else {
+                    adjustedColumnWidth = columnWidth - fullName.size();
+                }
+                colSeparator = this->util.multiplyStr(" ", adjustedColumnWidth);
             } else {
                 colSeparator = "\n";
                 colNumber = 0;
             }
-            studentsWithinGradeRange += fullName + colSeparator;
+            studentsWithinGradeRange += fullName + gradeToDisplay + colSeparator;
         }
 
     }
-    return studentsWithinGradeRange + "\n";
+    return studentsWithinGradeRange;
 }
 }
 

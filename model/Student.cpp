@@ -35,5 +35,19 @@ int Student::getGrade() const
     return this->grade;
 }
 
+bool Student::operator<(const Student& other) const
+{
+    for (char c1 : this->lastName) {
+        for (char c2 : other.lastName) {
+            if (c1 < c2) {
+                return true;
+            } else if (c1 > c2) {
+                return false;
+            }
+        }
+    }
+    return false;
+}
+
 }
 

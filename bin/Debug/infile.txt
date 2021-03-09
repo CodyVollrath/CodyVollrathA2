@@ -1,0 +1,9 @@
+zast,airst,90
+ast4,birst4,100
+ast6,er1,100
+daffy,duck,90
+mccdonald,ronald,70
+dast2,acdst2,80
+cast5,birst5,89
+hast3,cirst3,70
+iast6,dirst6,79

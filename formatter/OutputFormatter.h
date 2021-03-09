@@ -21,12 +21,12 @@ class OutputFormatter
         Utility util;
         string outputData;
         int numberOfColumns;
+        bool displayWithNumberGrade;
         Roster roster;
         string getStudentsWithinRange(int maxGrade,int minGrade) const;
 
     public:
-        OutputFormatter(const Roster& roster);
-        OutputFormatter(const Roster& roster, int numberOfColumns);
+        OutputFormatter(const Roster& roster, int numberOfColumns, bool displayWithNumberGrade);
         virtual ~OutputFormatter();
         string produceOutput() const;
 

@@ -17,6 +17,7 @@ class FileHandler
         virtual ~FileHandler();
         string read() const;
         void write(const string& data);
+        bool doesOutputFileExist() const;
 
     protected:
 };

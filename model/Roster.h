@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 #include "Utility.h"
@@ -27,7 +28,10 @@ class Roster
         Student getStudent(int index) const;
         Student getStudent(const string& firstName, const string& lastName) const;
         int size() const;
-
+        void sortStudentsByLastName();
+        void sortStudentsByFirstName();
+        void sortStudentsByGrade();
+        void print();
     protected:
 };
 }
