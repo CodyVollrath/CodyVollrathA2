@@ -4,5 +4,9 @@ using namespace controller;
 int main(int argc, char* argv[])
 {
     CommandHandler commandHandler;
-    return commandHandler.processArguments(argc, argv);
+    int returnValue = commandHandler.processArguments(argc, argv);
+    if (returnValue == 0) {
+        commandHandler.displayResult();
+    }
+    return returnValue;
 }

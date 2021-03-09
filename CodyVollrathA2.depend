@@ -2,7 +2,7 @@
 1615160349 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
 	"CommandHandler.h"
 
-1615254554 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+1615301377 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
 	<iostream>
 	<regex>
 	<string>
@@ -15,7 +15,7 @@
 	"Student.h"
 	"OutputFormatter.h"
 
-1615258274 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
+1615301424 source:/home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.cpp
 	"CommandHandler.h"
 
 1615258186 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
@@ -34,7 +34,7 @@
 	<algorithm>
 	"Utility.h"
 
-1615220966 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
+1615259123 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
 	"OutputFormatter.h"
 
 1615217371 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h

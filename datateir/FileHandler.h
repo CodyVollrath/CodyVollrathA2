@@ -13,10 +13,34 @@ class FileHandler
         string infile;
         string outfile;
     public:
+        /**
+        * Initialize the FileHandler class
+        * @param infile the input file
+        * @param outfile the output file
+        */
         FileHandler(const string& infile, const string& outfile);
+
+        /**
+        * Deconstruct the FileHandler class
+        */
         virtual ~FileHandler();
+
+        /**
+        * Gets the data from the infile
+        * @return the data from infile
+        */
         string read() const;
+
+        /**
+        * Writes to the outfile file
+        * @param data the data to be written to the outfile
+        */
         void write(const string& data);
+
+        /**
+        * Determines if the outfile exists
+        * @return true if outfile exists on the system, false otherwise
+        */
         bool doesOutputFileExist() const;
 
     protected:

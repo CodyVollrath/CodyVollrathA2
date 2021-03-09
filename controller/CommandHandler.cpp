@@ -33,28 +33,7 @@ int CommandHandler::processArguments(int argc, char* argv[])
             this->determineFiles(argument);
             continue;
         }
-
-        try {
-            switch(this->table.at(argument))
-            {
-                case c: this->handleColumns();
-                break;
-                case g: this->enableDisplayStudentGrade();
-                break;
-                case o: this->disallowOverwritePrompt();
-                break;
-                case r: this->removeStudentName();
-                break;
-                case sf: this->sortByFirstName();
-                break;
-                case sg: this->sortByGrade();
-                break;
-                default: this->hasErrors = true;
-                break;
-            }
-        } catch (...) {
-            this->hasErrors = true;
-        }
+        this->processOptions(argument);
 
     }
 
@@ -68,41 +47,7 @@ int CommandHandler::processArguments(int argc, char* argv[])
         this->displayUsageStatement(programName);
         return 1;
     }
-
-
-    FileHandler fileIO(this->inputFile, this->outputFile);
-    string fileData = fileIO.read();
-    CSVParser parser(fileData);
-    Roster roster = parser.getRoster();
-    if (!this->studentFirstName.empty() && !this->studentLastName.empty()) {
-        Student student = roster.getStudent(this->studentFirstName, this->studentLastName);
-        roster.remove(student);
-    }
-    roster.sortStudentsByLastName();
-    if (this->doSortByFirstName) {
-        roster.sortStudentsByFirstName();
-    }
-
-    if (this->doSortByGrade) {
-        roster.sortStudentsByGrade();
-    }
-
-    OutputFormatter outputFormatter(roster, this->columns, this->displayGrade);
-    string output = outputFormatter.produceOutput();
-    cout << output << endl;
-    if (!this->outputFile.empty()) {
-        char response = 'y';
-        if (!this->doNotPromptForOverwrite && fileIO.doesOutputFileExist()) {
-            cout << "Overwrite" << this->outputFile << "? (y|any key): ";
-            cin >> response;
-        }
-        if (response == 'y') {
-            fileIO.write(output);
-        }
-
-    }
     return 0;
-
 }
 
 void CommandHandler::displayUsageStatement(const string& programName)
@@ -127,12 +72,6 @@ void CommandHandler::displayUsageStatement(const string& programName)
          << "\t\t\t by the student's grade in descending order." << endl;
 }
 
-void CommandHandler::promptUserToOverwrite()
-{
-    //Display overwrite message;
-    //if yes then overwrite.
-    //if no do not process.
-}
 void CommandHandler::determineFiles(const string& filename)
 {
     this->arguments.pop();
@@ -200,6 +139,81 @@ void CommandHandler::sortByGrade()
 {
     this->arguments.pop();
     this->doSortByGrade = true;
+}
+
+void CommandHandler::processOptions(const string& argument)
+{
+    try {
+        switch(this->table.at(argument))
+        {
+            case c: this->handleColumns();
+            break;
+            case g: this->enableDisplayStudentGrade();
+            break;
+            case o: this->disallowOverwritePrompt();
+            break;
+            case r: this->removeStudentName();
+            break;
+            case sf: this->sortByFirstName();
+            break;
+            case sg: this->sortByGrade();
+            break;
+            default: this->hasErrors = true;
+            break;
+        }
+    } catch (...) {
+        this->hasErrors = true;
+    }
+}
+void CommandHandler::displayResult()
+{
+    FileHandler fileIO(this->inputFile, this->outputFile);
+    string fileData = fileIO.read();
+    Roster roster = this->getRosterFromFileData(fileData);
+
+    string output = this->displayOutput(roster);
+    this->saveToOutFile(fileIO, output);
+}
+string CommandHandler::displayOutput(const Roster& roster) const
+{
+    OutputFormatter outputFormatter(roster, this->columns, this->displayGrade);
+    string output = outputFormatter.produceOutput();
+    cout << output << endl;
+    return output;
+}
+
+void CommandHandler::saveToOutFile(FileHandler& fileIO, const string& output)
+{
+    if (!this->outputFile.empty()) {
+        char response = 'y';
+        if (!this->doNotPromptForOverwrite && fileIO.doesOutputFileExist()) {
+            cout << "Overwrite " << this->outputFile << "? (y|any key): ";
+            cin >> response;
+        }
+        if (response == 'y') {
+            fileIO.write(output);
+        }
+    }
+}
+
+Roster CommandHandler::getRosterFromFileData(const string& fileData) const
+{
+    CSVParser parser(fileData);
+    Roster roster = parser.getRoster();
+    if (!(this->studentFirstName.empty() || this->studentLastName.empty())) {
+        Student student = roster.getStudent(this->studentFirstName, this->studentLastName);
+        roster.remove(student);
+    }
+
+    roster.sortStudentsByLastName();
+    if (this->doSortByFirstName) {
+        roster.sortStudentsByFirstName();
+    }
+
+    if (this->doSortByGrade) {
+        roster.sortStudentsByGrade();
+    }
+    return roster;
 }
 }
 
