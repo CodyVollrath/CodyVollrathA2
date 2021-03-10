@@ -5,6 +5,10 @@ using namespace std;
 
 namespace model
 {
+/**
+* The Student class is responsible for storing student data
+* @author Cody Vollrath
+*/
 class Student
 {
 private:

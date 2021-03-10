@@ -10,5 +10,4 @@ int main(int argc, char* argv[])
         commandHandler.displayResult();
     }
     return returnValue;
-    return 0;
 }

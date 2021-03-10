@@ -96,6 +96,7 @@ void Roster::sortStudentsByFirstName()
                 }
             }
         }
+        return false;
     });
 }
 void Roster::sortStudentsByGrade()

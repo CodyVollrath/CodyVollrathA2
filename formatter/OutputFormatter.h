@@ -15,6 +15,10 @@ using namespace model;
 
 namespace formatter
 {
+/**
+* The OutputFormatter class is responsible for formatting the output of the data that is being processed
+* @author Cody Vollrath
+*/
 class OutputFormatter
 {
 private:

@@ -2,7 +2,7 @@
 1615354503 source:/home/cvollra1/Documents/CodyVollrathA2/main.cpp
 	"CommandHandler.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
+1615355121 /home/cvollra1/Documents/CodyVollrathA2/controller/CommandHandler.h
 	<iostream>
 	<regex>
 	<string>
@@ -21,13 +21,13 @@
 1615354442 source:/home/cvollra1/Documents/CodyVollrathA2/model/Student.cpp
 	"Student.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
+1615355256 /home/cvollra1/Documents/CodyVollrathA2/model/Student.h
 	<string>
 
 1615354458 source:/home/cvollra1/Documents/CodyVollrathA2/model/Roster.cpp
 	"Roster.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
+1615355240 /home/cvollra1/Documents/CodyVollrathA2/model/Roster.h
 	"Student.h"
 	<vector>
 	<string>
@@ -37,7 +37,7 @@
 1615354439 source:/home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.cpp
 	"OutputFormatter.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
+1615355179 /home/cvollra1/Documents/CodyVollrathA2/formatter/OutputFormatter.h
 	<string>
 	<bits/stdc++.h>
 	"Utility.h"
@@ -51,12 +51,12 @@
 1615354442 source:/home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.cpp
 	"FileHandler.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
+1615355149 /home/cvollra1/Documents/CodyVollrathA2/datateir/FileHandler.h
 	<iostream>
 	<fstream>
 	<string>
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/utility/Utility.h
+1615355325 /home/cvollra1/Documents/CodyVollrathA2/utility/Utility.h
 	<iostream>
 	<algorithm>
 	<string>
@@ -73,10 +73,10 @@
 	"Student.h"
 	<iostream>
 
-1615332317 source:/home/cvollra1/Documents/CodyVollrathA2/utility/Utility.cpp
+1615355340 source:/home/cvollra1/Documents/CodyVollrathA2/utility/Utility.cpp
 	"Utility.h"
 
-1615354442 /home/cvollra1/Documents/CodyVollrathA2/model/CSVParser.h
+1615355217 /home/cvollra1/Documents/CodyVollrathA2/model/CSVParser.h
 	<iostream>
 	"Utility.h"
 	"Roster.h"

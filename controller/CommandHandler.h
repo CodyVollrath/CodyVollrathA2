@@ -24,6 +24,11 @@ using namespace formatter;
 
 namespace controller
 {
+
+/**
+* The CommandHandler class is responsible for processing commands sent from the command line
+* @author Cody Vollrath
+*/
 class CommandHandler
 {
 private:

@@ -43,14 +43,6 @@ int Utility::convertStrToNum(const string& numStr) const
     int numericValue = stoi(numStr, nullptr, baseTen);
     return numericValue;
 }
-string Utility::multiplyStr(const string& str, unsigned int multiplier) const
-{
-    string output;
-    while (multiplier--) {
-        output += str;
-    }
-    return output;
-}
 
 string Utility::convertToUpperCamelCase(const string& str) const
 {

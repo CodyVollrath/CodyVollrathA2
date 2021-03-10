@@ -10,6 +10,10 @@
 using namespace std;
 namespace utility
 {
+/**
+* The utility class is responsible for various low level functions that require extra processing
+* @author Cody Vollrath
+*/
 class Utility
 {
 public:
@@ -44,14 +48,6 @@ public:
     * @return the integer that was passed in as a string
     */
     int convertStrToNum(const string& numStr) const;
-
-    /**
-    * Returns a string that appends the inputted string as many times as the passed in multiplier.
-    * @param multiplier the passed in multiplier represents how many times the string will appear
-    * @param str the string to be passed in
-    *
-    */
-    string multiplyStr(const string& str, unsigned int multiplier) const;
 
     /**
     * Converts the first character to upper case and the rest of the characters to lowercase

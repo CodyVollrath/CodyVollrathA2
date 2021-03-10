@@ -10,6 +10,10 @@ using namespace utility;
 #include "Student.h"
 namespace model
 {
+/**
+* The CSVParser class is responsible for parsing a csv and creating a roster class from that data
+* @author Cody Vollrath
+*/
 class CSVParser
 {
 private:

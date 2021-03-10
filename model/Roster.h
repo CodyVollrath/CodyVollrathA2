@@ -13,6 +13,10 @@ using namespace utility;
 
 namespace model
 {
+/**
+* The Roster class is responsible for storing a collection of students
+* @author Cody Vollrath
+*/
 class Roster
 {
 private:

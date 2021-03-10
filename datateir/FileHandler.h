@@ -7,6 +7,10 @@ using namespace std;
 
 namespace datatier
 {
+/**
+* The FileHandler deals with writing to and reading from files
+* @author Cody Vollrath
+*/
 class FileHandler
 {
 private:
