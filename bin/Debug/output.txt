@@ -1,18 +1,10 @@
 Students earning an A:
-er1 ast6
-birst4 ast4
-duck daffy
-airst zast
-
+Bug Bunny           Sam Yosemite           
 
 Students earning a B:
-birst5 cast5
-acdst2 dast2
+Elmer Fudd           Lola Bunny           Speedy Gonzales
+Tasmanian Devil           
 
-
-Students earning a C:
-cirst3 hast3
-dirst6 iast6
-ronald mccdonald
-
+Students earning a D:
+Daffy Duck           
 

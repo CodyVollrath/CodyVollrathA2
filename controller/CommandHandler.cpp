@@ -16,20 +16,24 @@ int CommandHandler::processArguments(int argc, char* argv[])
 {
     string programName = argv[0];
 
-    for (int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; i++)
+    {
         this->arguments.push(string(argv[i]));
     }
 
-    while (!(this->arguments.empty() || this->hasErrors)) {
+    while (!(this->arguments.empty() || this->hasErrors))
+    {
         string argument = this->arguments.front();
 
-        if (argument == "--help") {
+        if (argument == "--help")
+        {
             this->arguments.pop();
             this->displayUsageStatement(programName);
             return 0;
         }
 
-        if (argument[0] != '-') {
+        if (argument[0] != '-')
+        {
             this->determineFiles(argument);
             continue;
         }
@@ -37,12 +41,14 @@ int CommandHandler::processArguments(int argc, char* argv[])
 
     }
 
-    if (this->hasErrors) {
+    if (this->hasErrors)
+    {
         this->displayUsageStatement(programName);
         return 1;
     }
 
-    if (this->inputFile.empty()) {
+    if (this->inputFile.empty())
+    {
         cout << "No input file was found"<< endl;
         this->displayUsageStatement(programName);
         return 1;
@@ -75,7 +81,8 @@ void CommandHandler::displayUsageStatement(const string& programName)
 void CommandHandler::determineFiles(const string& filename)
 {
     this->arguments.pop();
-    if (!this->isInputFileParsed) {
+    if (!this->isInputFileParsed)
+    {
         this->inputFile = filename;
         this->isInputFileParsed = true;
         return;
@@ -86,14 +93,16 @@ void CommandHandler::determineFiles(const string& filename)
 void CommandHandler::handleColumns()
 {
     this->arguments.pop();
-    if (this->arguments.empty()) {
+    if (this->arguments.empty())
+    {
         cout << "Invalid Argument List. Please see --help." << endl;
         this->hasErrors = true;
         return;
     }
 
     int numericArg = this->util.convertStrToNum(this->arguments.front());
-    if (numericArg == 0) {
+    if (numericArg == 0)
+    {
         cout << this->arguments.front() << " is not valid. Please see --help." << endl;
         this->hasErrors = true;
         return;
@@ -118,7 +127,8 @@ void CommandHandler::removeStudentName()
 {
     this->arguments.pop();
 
-    if (this->arguments.size() < 2) {
+    if (this->arguments.size() < 2)
+    {
         cout << "Invalid Argument List. Please see --help." << endl;
         this->hasErrors = true;
         return;
@@ -143,31 +153,46 @@ void CommandHandler::sortByGrade()
 
 void CommandHandler::processOptions(const string& argument)
 {
-    try {
+    try
+    {
         switch(this->table.at(argument))
         {
-            case c: this->handleColumns();
+        case c:
+            this->handleColumns();
             break;
-            case g: this->enableDisplayStudentGrade();
+        case g:
+            this->enableDisplayStudentGrade();
             break;
-            case o: this->disallowOverwritePrompt();
+        case o:
+            this->disallowOverwritePrompt();
             break;
-            case r: this->removeStudentName();
+        case r:
+            this->removeStudentName();
             break;
-            case sf: this->sortByFirstName();
+        case sf:
+            this->sortByFirstName();
             break;
-            case sg: this->sortByGrade();
+        case sg:
+            this->sortByGrade();
             break;
-            default: this->hasErrors = true;
+        default:
+            this->hasErrors = true;
             break;
         }
-    } catch (...) {
+    }
+    catch (...)
+    {
         this->hasErrors = true;
     }
 }
 void CommandHandler::displayResult()
 {
     FileHandler fileIO(this->inputFile, this->outputFile);
+    if (!fileIO.doesInputFileExist())
+    {
+        cout << "The input file '" << this->inputFile << "' does not exist" << endl;
+        return;
+    }
     string fileData = fileIO.read();
     Roster roster = this->getRosterFromFileData(fileData);
 
@@ -184,13 +209,16 @@ string CommandHandler::displayOutput(const Roster& roster) const
 
 void CommandHandler::saveToOutFile(FileHandler& fileIO, const string& output)
 {
-    if (!this->outputFile.empty()) {
+    if (!this->outputFile.empty())
+    {
         char response = 'y';
-        if (!this->doNotPromptForOverwrite && fileIO.doesOutputFileExist()) {
+        if (!this->doNotPromptForOverwrite && fileIO.doesOutputFileExist())
+        {
             cout << "Overwrite " << this->outputFile << "? (y|any key): ";
             cin >> response;
         }
-        if (response == 'y') {
+        if (response == 'y')
+        {
             fileIO.write(output);
         }
     }
@@ -200,17 +228,20 @@ Roster CommandHandler::getRosterFromFileData(const string& fileData) const
 {
     CSVParser parser(fileData);
     Roster roster = parser.getRoster();
-    if (!(this->studentFirstName.empty() || this->studentLastName.empty())) {
+    if (!(this->studentFirstName.empty() || this->studentLastName.empty()))
+    {
         Student student = roster.getStudent(this->studentFirstName, this->studentLastName);
         roster.remove(student);
     }
 
     roster.sortStudentsByLastName();
-    if (this->doSortByFirstName) {
+    if (this->doSortByFirstName)
+    {
         roster.sortStudentsByFirstName();
     }
 
-    if (this->doSortByGrade) {
+    if (this->doSortByGrade)
+    {
         roster.sortStudentsByGrade();
     }
     return roster;

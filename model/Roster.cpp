@@ -20,7 +20,8 @@ void Roster::add(Student& student)
 void Roster::remove(Student& student)
 {
     int indexToRemove = this->getIndex(student);
-    if (indexToRemove >= 0) {
+    if (indexToRemove >= 0)
+    {
         this->students.erase(this->students.begin() + indexToRemove);
     }
 }
@@ -33,9 +34,11 @@ Student Roster::getStudent(int index) const
 int Roster::getIndex(Student& student) const
 {
     int index = -1;
-    for (vector<Student>::size_type i = 0; i < this->students.size(); i++) {
+    for (vector<Student>::size_type i = 0; i < this->students.size(); i++)
+    {
         Student currStudent = this->students[i];
-        if (student.getFullName() == currStudent.getFullName()) {
+        if (student.getFullName() == currStudent.getFullName())
+        {
             index = i;
             break;
         }
@@ -45,10 +48,12 @@ int Roster::getIndex(Student& student) const
 Student Roster::getStudent(const string& firstName, const string& lastName) const
 {
     string fullName = firstName + " " + lastName;
-        for (vector<Student>::size_type i = 0; i < this->students.size(); i++) {
+    for (vector<Student>::size_type i = 0; i < this->students.size(); i++)
+    {
         Student currStudent = this->students[i];
         bool equalsIgnoredCase = this->util.strEqualsIgnoreCase(fullName,currStudent.getFullName());
-        if (equalsIgnoredCase) {
+        if (equalsIgnoredCase)
+        {
 
             return currStudent;
         }
@@ -63,7 +68,8 @@ int Roster::size() const
 }
 void Roster::print()
 {
-    for (vector<Student>::size_type i = 0; i < this->students.size(); i++) {
+    for (vector<Student>::size_type i = 0; i < this->students.size(); i++)
+    {
         cout << this->students[i].getFullName() << endl;
     }
 }
@@ -75,25 +81,29 @@ void Roster::sortStudentsByLastName()
 void Roster::sortStudentsByFirstName()
 {
     sort(this->students.begin(), this->students.end(), [](Student a, Student b)
-         {
-             for (char& c1 : a.getFirstName()) {
-                for (char& c2 : b.getFirstName())
+    {
+        for (char& c1 : a.getFirstName())
+        {
+            for (char& c2 : b.getFirstName())
+            {
+                if (c1 < c2)
                 {
-                    if (c1 < c2) {
-                        return true;
-                    } else if (c1 > c2) {
-                        return false;
-                    }
+                    return true;
                 }
-             }
-         }); //<- Predicate of some sort
+                else if (c1 > c2)
+                {
+                    return false;
+                }
+            }
+        }
+    });
 }
 void Roster::sortStudentsByGrade()
 {
     sort(this->students.begin(), this->students.end(), [](Student a, Student b)
-         {
-             return a.getGrade() > b.getGrade();
-         }); //<- Predicate of some sort
+    {
+        return a.getGrade() > b.getGrade();
+    }); //<- Predicate of some sort
 }
 }
 

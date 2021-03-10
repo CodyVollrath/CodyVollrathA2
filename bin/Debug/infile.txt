@@ -1,9 +1,8 @@
-zast,airst,90
-ast4,birst4,100
-ast6,er1,100
-daffy,duck,90
-mccdonald,ronald,70
-dast2,acdst2,80
-cast5,birst5,89
-hast3,cirst3,70
-iast6,dirst6,79
+Bunny,bug,97
+yosemite,sam,94
+pig,peTuniA,89
+Gonzales,Speedy,88
+Devil,Tasmanian,88
+Bunny,Lola,87
+Fudd,Elmer,81
+Duck,Daffy,67

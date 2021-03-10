@@ -51,5 +51,16 @@ string Utility::multiplyStr(const string& str, unsigned int multiplier) const
     }
     return output;
 }
+
+string Utility::convertToUpperCamelCase(const string& str) const
+{
+    string output = str;
+    char firstCharacterUpper = toupper(str[0]);
+    output[0] = firstCharacterUpper;
+    for (unsigned int i = 1; i < str.size(); i++) {
+        output[i] = tolower(str[i]);
+    }
+    return output;
+}
 }
 

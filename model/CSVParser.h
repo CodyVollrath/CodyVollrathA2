@@ -12,18 +12,30 @@ namespace model
 {
 class CSVParser
 {
-    private:
-        string csvData;
-        Utility util;
-        Student createStudent(const vector<string>& fields) const;
+private:
+    string csvData;
+    Utility util;
+    Student createStudent(const vector<string>& fields) const;
 
-    public:
-        CSVParser(const string& csvData);
-        virtual ~CSVParser();
-        Roster getRoster() const;
+public:
+    /**
+    * Initializes CSVParser class
+    */
+    CSVParser(const string& csvData);
+
+    /**
+    * Deconstructs the CSVParser object
+    */
+    virtual ~CSVParser();
+
+    /**
+    * Gets the roster created from the csv data that was passed into it.
+    * @return the roster of students
+    */
+    Roster getRoster() const;
 
 
-    protected:
+protected:
 };
 }
 

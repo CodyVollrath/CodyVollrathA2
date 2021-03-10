@@ -15,7 +15,8 @@ Roster CSVParser::getRoster() const
 {
     vector<string> lines = this->util.splitStr(this->csvData, '\n');
     Roster roster;
-    for (vector<string>::size_type i = 0; i < lines.size(); i++) {
+    for (vector<string>::size_type i = 0; i < lines.size(); i++)
+    {
         vector<string> field = this->util.splitStr(lines[i], ',');
         string firstName = field[1];
         string lastName = field[0];

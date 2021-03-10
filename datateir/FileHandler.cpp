@@ -41,5 +41,14 @@ bool FileHandler::doesOutputFileExist() const
     }
     return false;
 }
+
+    bool FileHandler::doesInputFileExist() const
+{
+    ifstream file(this->infile);
+    if (file) {
+        return true;
+    }
+    return false;
+}
 }
 

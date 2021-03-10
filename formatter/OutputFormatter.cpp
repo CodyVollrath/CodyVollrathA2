@@ -22,21 +22,26 @@ string OutputFormatter::produceOutput() const
     string DStudents = this->getStudentsWithinRange(69,60);
     string FStudents = this->getStudentsWithinRange(59, INT_MIN);
 
-    if (!AStudents.empty()) {
+    if (!AStudents.empty())
+    {
         output = "Students earning an A:\n" + AStudents + "\n\n";
     }
-    if (!BStudents.empty()) {
+    if (!BStudents.empty())
+    {
         output += "Students earning a B:\n" + BStudents + "\n\n";
 
     }
-    if (!CStudents.empty()) {
+    if (!CStudents.empty())
+    {
         output += "Students earning a C:\n" + CStudents + "\n\n";
     }
-    if (!DStudents.empty()) {
+    if (!DStudents.empty())
+    {
         output += "Students earning a D:\n" + DStudents + "\n\n";
 
     }
-    if (!FStudents.empty()) {
+    if (!FStudents.empty())
+    {
         output += "Students earning an F:\n" + FStudents + "\n\n";
     }
 
@@ -45,33 +50,41 @@ string OutputFormatter::produceOutput() const
 string OutputFormatter::getStudentsWithinRange(int maxGrade,int minGrade) const
 {
     string studentsWithinGradeRange;
-    string colSeparator;
-    unsigned int columnWidth = 22;
-    unsigned int adjustedColumnWidth;
+    stringstream colSeparator;
+    unsigned int columnWidth = 11;
     int colNumber = 0;
-    for (int i = 0; i < this->roster.size(); i++) {
+    for (int i = 0; i < this->roster.size(); i++)
+    {
+
         Student currStudent = this->roster.getStudent(i);
-        string fullName = currStudent.getFullName();
+        string firstName = this->util.convertToUpperCamelCase(currStudent.getFirstName());
+        string lastName = this->util.convertToUpperCamelCase(currStudent.getLastName());
+        string fullName = firstName + " " + lastName;
+
         int grade = currStudent.getGrade();
         string gradeToDisplay;
-        if (this->displayWithNumberGrade) {
+        if (this->displayWithNumberGrade)
+        {
             gradeToDisplay = " (" + to_string(grade) + ")";
         }
 
-        if (grade <= maxGrade && grade >= minGrade) {
+        if (grade <= maxGrade && grade >= minGrade)
+        {
             colNumber++;
-            if (colNumber < this->numberOfColumns) {
-                if (fullName.size() > columnWidth) {
-                    adjustedColumnWidth = columnWidth;
-                } else {
-                    adjustedColumnWidth = columnWidth - fullName.size();
-                }
-                colSeparator = this->util.multiplyStr(" ", adjustedColumnWidth);
-            } else {
-                colSeparator = "\n";
+            if (colNumber < this->numberOfColumns)
+            {
+                colSeparator.clear();
+                colSeparator.str(string());
+                colSeparator << setw(columnWidth) << " ";
+            }
+            else
+            {
+                colSeparator.clear();
+                colSeparator.str(string());
+                colSeparator << "\n";
                 colNumber = 0;
             }
-            studentsWithinGradeRange += fullName + gradeToDisplay + colSeparator;
+            studentsWithinGradeRange += fullName + gradeToDisplay + colSeparator.str();
         }
 
     }
