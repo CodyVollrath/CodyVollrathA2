@@ -1,16 +1,10 @@
 Students earning an A:
-Sam Yosemite (94)
-
+Bug Bunny (97)           Sam Yosemite (94)           
 
 Students earning a B:
-Petunia Pig (89)
-Tasmanian Devil (88)
-Speedy Gonzales (88)
-Lola Bunny (87)
-Elmer Fudd (81)
-
+Lola Bunny (87)           Tasmanian Devil (88)           Elmer Fudd (81)
+Speedy Gonzales (88)           
 
 Students earning a D:
-Daffy Duck (67)
-
+Daffy Duck (67)           
 

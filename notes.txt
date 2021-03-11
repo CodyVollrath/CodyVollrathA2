@@ -1,0 +1,3 @@
+Formatting is a bit off and I never could figure out how to get it to be 100 percent left justified no matter the size of the names.
+
+I used a stringstrem to do the formatting.

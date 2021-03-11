@@ -51,7 +51,7 @@ string OutputFormatter::getStudentsWithinRange(int maxGrade,int minGrade) const
 {
     string studentsWithinGradeRange;
     stringstream colSeparator;
-    unsigned int columnWidth = 11;
+    unsigned const int COL_WIDTH = 22;
     int colNumber = 0;
     for (int i = 0; i < this->roster.size(); i++)
     {
@@ -75,7 +75,7 @@ string OutputFormatter::getStudentsWithinRange(int maxGrade,int minGrade) const
             {
                 colSeparator.clear();
                 colSeparator.str(string());
-                colSeparator << setw(columnWidth) << " ";
+                colSeparator << setw(COL_WIDTH);
             }
             else
             {
